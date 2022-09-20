@@ -88,10 +88,10 @@ wget https://raw.githubusercontent.com/sormy/msmtp-oauth2token/main/oauth2token-
 chmod +x /usr/local/bin/oauth2token
 ```
 
-Save secret to some unique config file, for example, `/var/mail/msmp-your_username.conf`:
+Save secret to some unique config file, for example, `/var/mail/msmtp-your_username.conf`:
 
 ```
-nano /var/mail/msmp-your_username.conf
+nano /var/mail/msmtp-your_username.conf
 
 client-id=<client-id>
 client-secret=<client-secret>
@@ -107,7 +107,7 @@ account your_username@gmail.com
 from your_username@gmail.com
 user your_username@gmail.com
 auth oauthbearer
-passwordeval oauth2token your_username@gmail.com /var/mail/msmp-your_username.conf
+passwordeval oauth2token your_username@gmail.com /var/mail/msmtp-your_username.conf
 host smtp.gmail.com
 port 587
 tls on
@@ -127,7 +127,7 @@ wget https://raw.githubusercontent.com/sormy/msmtp-oauth2token/main/oauth2token-
 chmod +x /usr/local/bin/oauth2token
 ```
 
-Choose a config file location for temporary token, for example, `/var/mail/msmp-your_username.conf`:
+Choose a config file for temporary token, for example, `/var/mail/msmtp-your_username.conf`:
 
 Create msmtp config:
 
@@ -138,7 +138,7 @@ account your_username@gmail.com
 from your_username@gmail.com
 user your_username@gmail.com
 auth oauthbearer
-passwordeval oauth2token your_username@gmail.com <client-id> <client-secret> <refresh> /var/mail/msmp-your_username.conf
+passwordeval oauth2token your_username@gmail.com <client-id> <client-secret> <refresh> /var/mail/msmtp-your_username.conf
 host smtp.gmail.com
 port 587
 tls on
@@ -148,8 +148,8 @@ account default : your_username@gmail.com
 
 ### Option C: Configure msmtp with secret stored encrypted using pass
 
-Application `pass` has a very deep wiring with gnupg, you will need to initialize pass keyring using
-gnupg and gnupg as well before you can use it.
+Application `pass` has a very deep wiring with gnupg, you will need to initialize both gnupg and
+pass keyring before you can use it.
 
 Install pass:
 
@@ -220,9 +220,9 @@ Read more if you have questions here: https://wiki.archlinux.org/title/GNOME/Key
 Save secret under some unique key, for example, `msmtp-your_username`:
 
 ```
-echo "[...id...]" | secret-tool store msmtp-your_username client-id
-echo "[...secret...]" | secret-tool store msmtp-your_username client-secret
-echo "[...refresh...]" | secret-tool store msmtp-your_username refresh
+echo "<client-id>" | secret-tool store msmtp-your_username client-id
+echo "<client-secret>" | secret-tool store msmtp-your_username client-secret
+echo "<refresh>" | secret-tool store msmtp-your_username refresh
 ```
 
 Create msmtp config:
