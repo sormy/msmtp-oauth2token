@@ -91,9 +91,11 @@ chmod +x /usr/local/bin/oauth2token
 Save secret to some unique config file, for example, `/var/mail/msmp-your_username.conf`:
 
 ```
-echo "client-id=<client-id>" > /var/mail/msmp-your_username.conf
-echo "client-secret=<client-secret>" >> /var/mail/msmp-your_username.conf
-echo "refresh=<refresh>" >> /var/mail/msmp-your_username.conf
+nano /var/mail/msmp-your_username.conf
+
+client-id=<client-id>
+client-secret=<client-secret>
+refresh=<refresh>
 ```
 
 Create msmtp config:
@@ -250,6 +252,22 @@ echo "test" | msmtp test_address@gmail.com
 
 First email might get into "spam", ensure to take it out from "spam" to avoid mail from your server
 to land here.
+
+## (optional) Configure aliases
+
+Add to `/etc/msmtprc`:
+
+```
+aliases /etc/aliases
+```
+
+Add aliases to `/etc/aliases`:
+
+```
+nano /etc/aliases
+
+default: admin_name@domain.com
+```
 
 ## Troubleshooting
 
