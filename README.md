@@ -8,7 +8,7 @@ libsecret.
 
 It is recommended to create separate api key for every server that will be using gmail account.
 
-Create mail application with access to gmail api and with oath2 credentials.
+Create mail application with access to gmail api and with oauth2 credentials.
 
 - Open console: https://console.cloud.google.com/apis/dashboard
 - Login with your google credentials
