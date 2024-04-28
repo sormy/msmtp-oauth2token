@@ -21,18 +21,17 @@ Create mail application with access to gmail api and with oauth2 credentials.
   - Add gmail account address in test users
 - Click "Credentials" on left side panel
   - Click "CREATE CREDENTIALS" and then "OAuth client ID"
-  - Choose "Desktop app" type
+  - Choose "Web application" type
   - Set name to differentiate server or server and use case
+  - Set "Authorized redirect URIs" to `https://oauth2.dance/`
 - Copy produced client id and client secret.
 
 ## Retrieve access token for gmail api key
 
-Install gmail-oauth2-tools:
+Install gmail-oauth2-tools (requires python3):
 
 ```
-apt-get install python2
-ln -sfv /usr/bin/python2 /usr/bin/python
-
+apt-get install python3
 wget https://raw.githubusercontent.com/google/gmail-oauth2-tools/master/python/oauth2.py -O /usr/local/bin/oauth2.py
 chmod +x /usr/local/bin/oauth2.py
 ln -sv /usr/local/bin/oauth2.py /usr/local/bin/oauth2
