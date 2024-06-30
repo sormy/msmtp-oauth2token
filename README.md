@@ -1,5 +1,8 @@
 # msmtp oauth2token scripts
 
+**SETUP BELOW DOESN'T WORK AS OF 2024-06-30. Use https://myaccount.google.com/apppasswords and
+standard email client setup.**
+
 This is a set of scripts for integration with gmail and msmtp using oauth2 targeting different way
 of storing secret - using plain text in separate file, straith in msmtp config, using pass or
 libsecret.
@@ -15,9 +18,12 @@ Create mail application with access to gmail api and with oauth2 credentials.
 - Create project, for example "mail" (it is best to have separate project just for mail)
 - Click "ENABLE APIS AND SERVICES" and enable "Gmail API"
 - Click "OAuth consent screen" on left side panel
+  - User type: external
   - Use project ID (don't confuse with project name) as "app name"
     - Usually for project named `mail` it looks like `mail-110001`
   - Use gmail email as user support email
+  - Use gmail email as developer contact information
+  - Enable Gmail API ".../auth/gmail.send" scope
   - Add gmail account address in test users
 - Click "Credentials" on left side panel
   - Click "CREATE CREDENTIALS" and then "OAuth client ID"
